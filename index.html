@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="Easy Chat" />
-
-		<title>Easy Video chat</title>
-		<link rel="stylesheet" href="bootstrap.min.css" />
-		<link rel="stylesheet" href="style.css" />
+<html lang="en">
+<head>
+<title>WebAV Video Chat</title>
+<meta charset="utf-8" />
+<meta name="description" content="WebAV Video Chat" />
+<link rel="stylesheet" href="bootstrap.min.css" />
+<link rel="stylesheet" href="style.css" />
 <script src="js/lib/adapter.js"></script>
-	</head>
-	<body>
-	<video id="localStream"></video>
-		<script>
+</head>
+<body>
+<video id="localStream"></video>
 <script>
-            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia; 
+            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
             var constraints = {video: true, audio: true};
 
             function successCallback (localMediaStream) {
-            	window.stream = localMediaStream;
-            	var localVideo = document.querySelector('#localStream');
-            	localVideo.src = window.URL.createObjectURL(localMediaStream);
-            	localVideo.play();
+             window.stream = localMediaStream;
+             var localVideo = document.querySelector('#localStream');
+             localVideo.src = window.URL.createObjectURL(localMediaStream);
+             localVideo.play();
             }
-function errorCallback (error) {
-            	console.log(error);
+
+            function errorCallback (error) {
+             console.log(error);
             }
 
             navigator.getUserMedia(constraints, successCallback, errorCallback);
-
+</script>
+</body>
+</html>
